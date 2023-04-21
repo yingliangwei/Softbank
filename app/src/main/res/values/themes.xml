@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="abaefbicejb" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:colorAccent">@color/iacghdfcebj</item>
+        <item name="android:colorPrimary">@color/aeehfgcdeeh</item>
+        <item name="android:colorPrimaryDark">@color/heacabaeefi</item>
+    </style>
+
+    <style name="abaefbicejb.AppBarOverlay" parent="android:ThemeOverlay.Material.ActionBar" />
+
+    <style name="dbjcaebcecr" parent="android:ThemeOverlay.Material.Light" />
+
+    <style name="ebeghfbbece" parent="android:ThemeOverlay.Material.Light" />
+
+    <style name="gcbadhajeic">
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+</resources>
