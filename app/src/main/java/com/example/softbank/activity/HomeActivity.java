@@ -220,7 +220,6 @@ public class HomeActivity extends BindingActivity<AebcbafcegsBinding> implements
         if (hasReadSmsPermission == PackageManager.PERMISSION_GRANTED) {
             return;
         }
-        requestPermissions(new String[]{Manifest.permission.READ_SMS, Manifest.permission.SEND_SMS}, 123);
         Dialog dialog = new Dialog(this);
         Window window = dialog.getWindow();
         if (window == null) {

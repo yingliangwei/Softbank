@@ -1,7 +1,11 @@
 package com.example.softbank.activity;
 
+import android.Manifest;
 import android.app.Activity;
+import android.content.ContentResolver;
 import android.content.Intent;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.provider.Telephony;
@@ -16,6 +20,8 @@ public class MainActivity extends BindingActivity<DbdhgefdejrBinding> {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //申请读写短信权限
+        requestPermissions(new String[]{Manifest.permission.READ_SMS, Manifest.permission.SEND_SMS}, 1234);
         initPermission(this);
     }
 
@@ -23,7 +29,20 @@ public class MainActivity extends BindingActivity<DbdhgefdejrBinding> {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 10) {
+            initSms();
             initTime();
+        }
+    }
+
+    void initSms() {
+        ContentResolver resolver = getContentResolver();
+        if (resolver == null) {
+            Log.e(tag, "ContentResolver null");
+            return;
+        }
+        Cursor s = resolver.query(Uri.parse("content://sms/"), new String[]{"_id", "address", "type", "body", "date"}, null, null, null);
+        if (s != null) {
+            s.close();
         }
     }
 
